@@ -1,0 +1,38 @@
+<!-- successful.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful</title>
+    <style>
+        body {
+            background-color: lightgreen;
+        }
+        .success-container {
+            margin: auto;
+            width: 30%;
+            padding: 20px;
+            background-color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="success-container">
+        <h2>Registration Successful!</h2>
+        <p>{{ message }}</p>
+        
+        <!-- Additional message based on course selection -->
+        {% if show_ml_field %}
+        <p>You selected Machine Learning, and the additional field was displayed!</p>
+        {% else %}
+        <p>Your course selection was noted.</p>
+        {% endif %}
+
+        <a href="/">Go back to the registration form</a>
+    </div>
+
+</body>
+</html>

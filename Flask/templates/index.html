@@ -1,0 +1,74 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <style>
+        body {
+            background-color: orange;
+        }
+        .form-container {
+            margin: auto;
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Student Registration Form</h2>
+        <p>Fill in this form to register</p>
+
+        <form method="POST" action="/submit">
+            <label><b>First Name</b></label>
+            <input type="text" name="first_name" placeholder="Enter your first name" required><br><br>
+
+            <label><b>Last Name</b></label>
+            <input type="text" name="last_name" placeholder="Enter your last name" required><br><br>
+
+            <label><b>Email</b></label>
+            <input type="email" name="email" placeholder="Enter your email" required><br><br>
+
+            <label><b>Date of Birth</b></label>
+            <input type="date" name="dob" required><br><br>
+
+            <label><b>Set Username</b></label>
+            <input type="text" name="username" placeholder="Set Username" required><br><br>
+
+            <label><b>Set Password</b></label>
+            <input type="password" name="password" placeholder="Set Password" required><br><br>
+
+            <label><b>Gender</b></label><br>
+            <input type="radio" name="gender" value="Male"> Male<br>
+            <input type="radio" name="gender" value="Female"> Female<br>
+            <input type="radio" name="gender" value="Others"> Others<br><br>
+
+            <label><b>Course:</b></label>
+            <select name="course" required>
+                <option value="Course">Course</option>
+                <option value="CS">Computer Fundamentals</option>
+                <option value="AI">Artificial Intelligence</option>
+                <option value="ML">Machine Learning</option>
+                <option value="OOPS">Object-Oriented Programming</option>
+                <option value="DBMS">Database Management System</option>
+            </select><br><br>
+
+            <!-- Conditional field for ML course -->
+            {% if show_ml_field %}
+            <label><b>What is your experience with Machine Learning?</b></label>
+            <input type="text" name="ml_experience" placeholder="Enter your experience with ML tools"><br><br>
+            {% endif %}
+
+            <!-- Display message after form submission -->
+            {% if message %}
+            <p>{{ message }}</p>
+            {% endif %}
+
+            <input type="submit" value="Register">
+        </form>
+    </div>
+
+</body>
+</html>
